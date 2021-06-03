@@ -11,6 +11,7 @@ class KnightPathFinder:
 
 # (x,y) = pos
 # (x,y) = possible_move
+# when we return, for another starting postion ,
     def get_valid_moves(self, pos):
         possible_moves = [
             (1, 2),
