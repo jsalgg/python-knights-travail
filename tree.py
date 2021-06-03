@@ -11,7 +11,6 @@ class Node:
     @property
     def children(self):
         return self._children
-# input needed
 
     @property
     def parent(self):
@@ -29,9 +28,6 @@ class Node:
         if node is not None:
             node.add_child(self)
 
-
-# input unneeded
-
     def add_child(self, node):
         if node not in self._children:
             self._children.append(node)
@@ -41,6 +37,25 @@ class Node:
         if node in self._children:
             self._children.remove(node)
             node.parent = None
+
+    def depth_search(self, value):
+        if self._value is value:
+            return self
+        for child in self._children:
+            node = child.depth_search(value)
+            if node is not None:
+                return node
+        return None
+
+    def breadth_search(self, value):
+        queue = [self]
+        while len(queue) > 0:
+            node = queue.pop(0)
+            if node.value == value:
+                return node
+            elif node is not None:
+                queue.extend(node.children)
+        return None
 
 
 node1 = Node("root1")
@@ -52,3 +67,27 @@ node3.parent = node2
 
 print(node1.children)
 print(node2.children)
+
+# brute force solutiuons
+'''
+def search(root):
+    if root is None:
+        return None
+    visit(root) #adds root to visted list
+    for Node in root.children:
+        if !visited.includes(Node):
+            search(Node
+'''
+'''
+bfs(root):
+    Queue queue = new Queue()
+    root.marked = true
+    queue.enque(root)
+    while(!queue.isEmpty()):
+        node r = queue.dequeue()
+        visit(r)
+        for node n in r.children:
+            if(n.marked == false):
+                n.marked = true
+                queue.enqueue(n)
+'''
