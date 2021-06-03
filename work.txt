@@ -16,3 +16,51 @@ __ Add the following to the class
     -[x] A setter property method named "parent" that sets the parent property
         and calls the "add_child" method of the parent node passing itself
             as the node to add to the list of children
+
+
+Phase 2: KnightPathFinder class
+
+The knight's starting position = root node of the tree, the one passed in through the initializer.
+
+-[x] use  Node class to represent each position
+
+-[x] Creating an instance variable, self._root that stores the knight's initial position in an instance of your Node class.
+
+-[] keep track of all of the positions that the tree has already seen,
+    since you don't want to end up in an infinite loop of bouncing back and forth between the same two positions.
+-[] Add a new instance variable to the initializer named _considered_positions
+    and initialize it to a new set with the knight's root start position.
+
+
+Phase 2a: Valid and new move positions
+
+-[] Write a method named get_valid_moves(pos).
+        instance methods need to take in self as the first parameter.
+        From the value in pos, there could be up to eight possible moves.
+-[] The get_valid_moves(pos) method returns all valid moves from the position passed to it.
+
+-[] Write a method named new_move_positions(pos). From the value in pos, use it to call get_valid_moves(pos).
+Filter out the values returned from get_valid_moves(pos) with the values in _considered_positions.
+Think of what built-in set method you could use.
+Whatever is left over, add those values to _considered_positions, then return them.
+
+When you have completed both methods, take a moment to test your new_move_positions(pos) method. Initialize an instance of the KnightPathFinder class and invoke the new_move_positions method with a position. You should receive a set of possible moves (valid positions that are not already in the instance's "_considered_positions".)
+
+
+|       |       |       |       |       |       |       |       |
+_________________________________________________________________
+|       |       |   line17   |       |   line14   |       |       |       |
+_________________________________________________________________
+|       |       |       |   ⬆️   |       |       |       |       |
+_________________________________________________________________
+|       |       |       |   ♘   |       |       |       |       |
+_________________________________________________________________
+|       |       |       |       |       |       |       |       |
+_________________________________________________________________
+|       |       |       |       |       |       |       |       |
+_________________________________________________________________
+|       |       |       |       |       |       |       |       |
+_________________________________________________________________
+|       |       |       |       |       |       |       |       |
+_________________________________________________________________
+|       |       |       |       |       |       |       |       |
