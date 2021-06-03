@@ -1,0 +1,18 @@
+-[x] Create a file named tree.py.
+-[x] Declare a class named Node.
+-[x] Create an initializer for Node that Accepts
+     a parameter named "value"
+     and sets an instance variable named "_value" to that value
+-[x] Sets the "_parent" instance variable to None
+-[x] Sets the "_children" instance variable to a new empty list
+__ Add the following to the class
+    -[x] A getter property method named "value" that returns the value in "_value"
+    -[x] A getter property method named "children" that returns the value of "_children"
+    -[x] A method named "add_child" that takes a node to append it to the list in "_children"
+        and update the node's "_parent", if the node is not already in "_children"
+    -[x] A method named "remove_child" that takes a node to remove it from the list in "_children"
+        and reset its "_parent" to None
+    -[x] A getter property method named "parent" that returns the value of "_parent"
+    -[] A setter property method named "parent" that sets the parent property
+        and calls the "add_child" method of the parent node passing itself
+            as the node to add to the list of children
