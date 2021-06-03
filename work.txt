@@ -13,6 +13,6 @@ __ Add the following to the class
     -[x] A method named "remove_child" that takes a node to remove it from the list in "_children"
         and reset its "_parent" to None
     -[x] A getter property method named "parent" that returns the value of "_parent"
-    -[] A setter property method named "parent" that sets the parent property
+    -[x] A setter property method named "parent" that sets the parent property
         and calls the "add_child" method of the parent node passing itself
             as the node to add to the list of children
