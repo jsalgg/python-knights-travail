@@ -64,3 +64,20 @@ _________________________________________________________________
 |       |       |       |       |       |       |       |       |
 _________________________________________________________________
 |       |       |       |       |       |       |       |       |
+
+
+-[] define a set of moves from new_move_positions(self._root.value)
+-[] define 
+-[] iterate over set of moves and create nodes for each
+    //while iterating add to queue
+    -[] add child nodes to a queue
+-[] iterative process
+    -[] popping node off queue
+
+queue = Queue
+nodes_to_make = new_move_positions(root)
+for x in nodes_to_make:
+    child = Node(x)
+    queue.enqueue(child)
+list = [child.value for child in queue]
+return list

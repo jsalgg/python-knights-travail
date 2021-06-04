@@ -42,8 +42,31 @@ class KnightPathFinder:
             new_moves)
         return new_moves
 
+    def build_move_tree(self):
+        root = self._root
+        queue = [root]
+        while len(queue) > 0:
+            curr_node = queue.pop(0)
+            new_moves = self.new_move_positions(curr_node.value)
+            for move in new_moves:
+                child = Node(move)
+                curr_node.add_child(child)
+                queue.append(child)
+
+    def trace_to_root(self, ending_node):
+        path = []
+        pointer = ending_node
+        while pointer is not None:
+            path.append(pointer.value)
+            if pointer.parent is not None:
+                pointer = pointer.parent
+            else:
+                return
+        return path.reverse()
+
 
 finder = KnightPathFinder((0, 0))
-
+finder.build_move_tree()
+print(finder._root.children)
 # print(finder.get_valid_moves((4, 4)), "💛")
-print(finder.new_move_positions((0, 0)), '🙂')
+# print(finder.new_move_positions((0, 0)), '🙂')
