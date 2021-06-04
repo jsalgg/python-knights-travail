@@ -39,7 +39,7 @@ class Node:
             node.parent = None
 
     def depth_search(self, value):
-        if self._value is value:
+        if self._value == value:
             return self
         for child in self._children:
             node = child.depth_search(value)

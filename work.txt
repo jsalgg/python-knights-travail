@@ -72,12 +72,26 @@ _________________________________________________________________
     //while iterating add to queue
     -[] add child nodes to a queue
 -[] iterative process
-    -[] popping node off queue
+    -[] popping node off queue and define var with that value
+    -[] 
 
 queue = Queue
-nodes_to_make = new_move_positions(root)
-for x in nodes_to_make:
-    child = Node(x)
-    queue.enqueue(child)
-list = [child.value for child in queue]
-return list
+root = self._root
+queue.enque(root)
+while queue:
+    curr_node = queue.dequeue
+    new_moves = new_move_positions(curr_node)
+    for x in new_moves:
+        child = Node(x)
+        curr_node.add_child(child)
+        queue.enqueue(child)
+//////
+path = [] 
+while Node.parent is not None:
+    path.append(Node.value)
+    Node = Node.parent
+////////
+
+-[] target_node = self._depth_search(end_pos)
+-[] trace_to_root(target_node) => list of nodes
+-[] map values from node list and return it // -[] return list of positions from [root, ... , end_pos]

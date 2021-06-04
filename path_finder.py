@@ -57,16 +57,27 @@ class KnightPathFinder:
         path = []
         pointer = ending_node
         while pointer is not None:
-            path.append(pointer.value)
+            # print("🟨")
+            path.insert(0, pointer)
             if pointer.parent is not None:
                 pointer = pointer.parent
             else:
-                return
-        return path.reverse()
+                pointer = None
+        return path
+
+    def find_path(self, end_pos):
+        # new_node = Node(end_pos)
+
+        target_node = self._root.depth_search(end_pos)
+
+        return [node.value for node in self.trace_to_root(target_node)]
 
 
 finder = KnightPathFinder((0, 0))
 finder.build_move_tree()
-print(finder._root.children)
+# print(finder._root.children)
 # print(finder.get_valid_moves((4, 4)), "💛")
 # print(finder.new_move_positions((0, 0)), '🙂')
+print(finder.find_path((2, 1)))
+print(finder.find_path((3, 3)))
+print(finder.find_path((6, 2)))
